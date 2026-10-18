@@ -259,6 +259,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A10000000000000000000013 /* Minuta.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Minuta/Minuta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -290,6 +291,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A10000000000000000000013 /* Minuta.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Minuta/Minuta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

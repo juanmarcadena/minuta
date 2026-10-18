@@ -9,7 +9,8 @@ struct MinutaApp: App {
         MenuBarExtra {
             MenuContent(model: model)
         } label: {
-            Image(systemName: model.phase.isRecording ? "record.circle.fill" : "waveform")
+            // Minuta's own mark (template image, adapts to light/dark); a clear record symbol while recording.
+            (model.phase.isRecording ? Image(systemName: "record.circle.fill") : Image("MenuBarIcon"))
                 .accessibilityLabel(model.phase.isRecording ? "Minuta, recording" : "Minuta")
         }
         .menuBarExtraStyle(.menu)
