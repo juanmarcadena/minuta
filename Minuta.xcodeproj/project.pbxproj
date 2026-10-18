@@ -7,11 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B10000000000000000000001 /* MinutaMCP in Frameworks */ = {isa = PBXBuildFile; productRef = B10000000000000000000002 /* MinutaMCP */; };
+		B10000000000000000000003 /* minuta-mcp in Copy MCP Helper */ = {isa = PBXBuildFile; fileRef = B10000000000000000000010 /* minuta-mcp */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A10000000000000000000001 /* MinutaCore in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000002 /* MinutaCore */; };
 		A10000000000000000000004 /* MinutaTranscription in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000005 /* MinutaTranscription */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B10000000000000000000060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A10000000000000000000060 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B10000000000000000000050;
+			remoteInfo = "minuta-mcp";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B10000000000000000000070 /* Copy MCP Helper */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				B10000000000000000000003 /* minuta-mcp in Copy MCP Helper */,
+			);
+			name = "Copy MCP Helper";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B10000000000000000000010 /* minuta-mcp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "minuta-mcp"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10000000000000000000010 /* Minuta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minuta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10000000000000000000011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A10000000000000000000012 /* Minuta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Minuta.entitlements; sourceTree = "<group>"; };
@@ -19,6 +46,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		B10000000000000000000020 /* MCP */ = {isa = PBXFileSystemSynchronizedRootGroup; path = MCP; sourceTree = "<group>"; };
 		A10000000000000000000020 /* App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = App;
@@ -27,6 +55,14 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B10000000000000000000030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000000000000000000001 /* MinutaMCP in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A10000000000000000000030 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -52,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				A10000000000000000000020 /* App */,
+				B10000000000000000000020 /* MCP */,
 				A10000000000000000000011 /* Info.plist */,
 				A10000000000000000000012 /* Minuta.entitlements */,
 			);
@@ -62,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				A10000000000000000000010 /* Minuta.app */,
+				B10000000000000000000010 /* minuta-mcp */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,6 +107,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B10000000000000000000050 /* minuta-mcp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B10000000000000000000080 /* Build configuration list for PBXNativeTarget "minuta-mcp" */;
+			buildPhases = (
+				B10000000000000000000051 /* Sources */,
+				B10000000000000000000030 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B10000000000000000000020 /* MCP */,
+			);
+			name = "minuta-mcp";
+			packageProductDependencies = (
+				B10000000000000000000002 /* MinutaMCP */,
+			);
+			productName = "minuta-mcp";
+			productReference = B10000000000000000000010 /* minuta-mcp */;
+			productType = "com.apple.product-type.tool";
+		};
 		A10000000000000000000050 /* Minuta */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A10000000000000000000070 /* Build configuration list for PBXNativeTarget "Minuta" */;
@@ -76,10 +136,12 @@
 				A10000000000000000000051 /* Sources */,
 				A10000000000000000000030 /* Frameworks */,
 				A10000000000000000000052 /* Resources */,
+				B10000000000000000000070 /* Copy MCP Helper */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B10000000000000000000061 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				A10000000000000000000020 /* App */,
@@ -126,6 +188,7 @@
 			projectRoot = "";
 			targets = (
 				A10000000000000000000050 /* Minuta */,
+				B10000000000000000000050 /* minuta-mcp */,
 			);
 		};
 /* End PBXProject section */
@@ -141,6 +204,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B10000000000000000000051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A10000000000000000000051 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -150,7 +220,41 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B10000000000000000000061 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B10000000000000000000050 /* minuta-mcp */;
+			targetProxy = B10000000000000000000060 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		B10000000000000000000081 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A10000000000000000000013 /* Minuta.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER).mcp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		B10000000000000000000082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A10000000000000000000013 /* Minuta.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER).mcp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
 		A10000000000000000000071 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A10000000000000000000013 /* Minuta.xcconfig */;
@@ -258,6 +362,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B10000000000000000000080 /* Build configuration list for PBXNativeTarget "minuta-mcp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B10000000000000000000081 /* Debug */,
+				B10000000000000000000082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A10000000000000000000070 /* Build configuration list for PBXNativeTarget "Minuta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -286,6 +399,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B10000000000000000000002 /* MinutaMCP */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MinutaMCP;
+		};
 		A10000000000000000000002 /* MinutaCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MinutaCore;

@@ -297,3 +297,52 @@ extension MeetingDetector.State {
         #expect(TimelineGap.silence(elapsed: 9.0, written: 10.0) == 0)          // never negative
     }
 }
+
+@Suite struct TranscriptQueryTests {
+    func doc(_ name: String, _ iso: String, attendees: [String] = [], app: String = "Zoom", lines: [(Double, String, String)]) -> TranscriptDocument {
+        TranscriptDocument(url: URL(filePath: "/t/\(name).md"), title: name, date: ISO8601DateFormatter().date(from: iso),
+                           durationMinutes: 30, app: app, languages: [], attendees: attendees, meetingLink: nil,
+                           lines: lines.enumerated().map { .init(id: $0.offset, time: $0.element.0, speaker: $0.element.1, text: $0.element.2) })
+    }
+
+    var q: TranscriptQuery {
+        TranscriptQuery(documents: [
+            doc("2026-10-14 1000 - Pricing review", "2026-10-14T16:00:00Z", attendees: ["Dana Pérez"], lines: [
+                (0, "Me", "Hola, empezamos"), (10, "Them", "El precio por minuto baja a doce centavos"), (20, "Me", "Perfecto")]),
+            doc("2026-10-16 1500 - Weekly sync", "2026-10-16T21:00:00Z", app: "Google Meet", lines: [
+                (5, "Them 1", "Pricing is final"), (65, "Me", "Great, send the proposal")]),
+        ], timeZone: utcMinus6)
+    }
+
+    @Test func listsNewestFirstAndFilters() {
+        #expect(q.listMeetings().items.map(\.title) == ["2026-10-16 1500 - Weekly sync", "2026-10-14 1000 - Pricing review"])
+        #expect(q.listMeetings(query: "perez").items.map(\.title) == ["2026-10-14 1000 - Pricing review"])
+        #expect(q.listMeetings(app: "meet").total == 1)
+        #expect(q.listMeetings(from: q.parseDate("2026-10-15")).total == 1)
+        #expect(q.listMeetings(to: q.parseDate("2026-10-14", endOfDay: true)).total == 1)
+        let page = q.listMeetings(limit: 1)
+        #expect(page.next_cursor == "1")
+        #expect(q.listMeetings(limit: 1, cursor: page.next_cursor).items.first?.title == "2026-10-14 1000 - Pricing review")
+    }
+
+    @Test func searchIgnoresAccentsAndGivesContext() {
+        let hits = q.search("PRECIO minuto")
+        #expect(hits.total == 1)
+        #expect(hits.items[0].time == "0:10")
+        #expect(hits.items[0].context_before == "Me: Hola, empezamos")
+        #expect(hits.items[0].context_after == "Me: Perfecto")
+        #expect(q.search("pricing", speaker: "them 1").total == 1)
+        #expect(q.search("   ").total == 0)
+    }
+
+    @Test func transcriptRangesAndTruncation() {
+        let d = q.document(id: "2026-10-16 1500 - Weekly sync")!
+        #expect(q.transcript(d).text == "[0:05] Them 1: Pricing is final\n[1:05] Me: Great, send the proposal\n")
+        #expect(q.transcript(d, start: 60).text == "[1:05] Me: Great, send the proposal\n")
+        let cut = q.transcript(d, maxCharacters: 40)
+        #expect(cut.truncated && cut.next_start_time == "1:05")
+        #expect(q.transcript(d, detailed: true).text.hasPrefix("# 2026-10-16 1500 - Weekly sync\nFri 2026-10-16 15:00"))
+        #expect(TranscriptQuery.parseClock("1:02:05") == 3725)
+        #expect(q.document(id: "nope") == nil)
+    }
+}

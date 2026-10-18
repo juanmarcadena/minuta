@@ -33,6 +33,24 @@ meeting_link: https://zoom.us/j/123
 - **Calendar names and links.** The event on now that has a link for the call's app gives the title, attendees and link. Attendee names also go to Whisper as vocabulary so they are spelled right.
 - **A Transcripts window** (⌘T from the menu) lists every call by day, with search across all of them (ignoring case and accents) and Me/Them in different colors.
 
+## Ask Claude about your calls (MCP)
+
+Minuta includes a read-only [MCP](https://modelcontextprotocol.io) server at `Minuta.app/Contents/MacOS/minuta-mcp`, so an AI assistant can look things up in your transcripts. It runs on your Mac over stdio and only reads the transcripts folder set in Minuta's settings.
+
+```bash
+claude mcp add -s user minuta -- /Applications/Minuta.app/Contents/MacOS/minuta-mcp
+```
+
+For Claude Desktop or any other MCP client, add a stdio server with that command.
+
+| Tool | For questions like |
+|---|---|
+| `minuta_list_meetings` | "What calls did I have this week?" "My last calls with Dana?" (filter by date, title or attendee words, app) |
+| `minuta_search_transcripts` | "Where did we talk about pricing?" (matching lines with time, meeting and the lines around them) |
+| `minuta_get_transcript` | "What did we agree at the end of yesterday's sync?" (a whole call or a time range; concise or detailed) |
+
+The tools follow Anthropic's guidance for agent tools: a few task-shaped tools, readable meeting IDs (the file name), small pages with a cursor, and error messages that say how to fix the call. It uses the official [MCP Swift SDK](https://github.com/modelcontextprotocol/swift-sdk), so ask for summaries or action items in your assistant when you need them, not in every file.
+
 ## How it works
 
 | Piece | Built with |
@@ -45,6 +63,7 @@ meeting_link: https://zoom.us/j/123
 | Speaker diarization | SpeakerKit (pyannote) from the same package |
 | Calendar | EventKit, read-only |
 | Start at login | `SMAppService` |
+| AI access | MCP server (official Swift SDK) bundled as a helper tool |
 
 The pure logic lives in `MinutaCore` and is unit tested: the detection state machine, merging the two tracks, chunk planning, phantom-phrase filtering, speaker assignment, and the Markdown writer and parser.
 
