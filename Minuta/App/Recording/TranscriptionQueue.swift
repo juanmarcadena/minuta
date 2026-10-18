@@ -14,6 +14,8 @@ final class TranscriptionQueue {
     var lastError: String?
     /// Called on the main actor after each transcript is saved.
     @ObservationIgnored var onWritten: ((URL) -> Void)?
+    /// Called on the main actor when a recording couldn't be transcribed (its audio is kept).
+    @ObservationIgnored var onFailed: ((String) -> Void)?
 
     var count: Int { pending.count + (current == nil ? 0 : 1) }
 
@@ -102,6 +104,7 @@ final class TranscriptionQueue {
             onWritten?(url)
         } catch {
             lastError = String(localized: "Transcription failed for \(folder.lastPathComponent): \(error.localizedDescription). The audio was kept.")
+            onFailed?(lastError!)
             EventLog.write("transcription failed \(folder.lastPathComponent): \(error.localizedDescription)")
         }
     }

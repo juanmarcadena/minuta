@@ -11,6 +11,26 @@
         }
       }
     },
+    "A recording needs attention": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una grabación necesita atención"
+          }
+        }
+      }
+    },
+    "A transcript couldn't be made": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo hacer una transcripción"
+          }
+        }
+      }
+    },
     "A transcript of every call, written on this Mac.": {
       "localizations": {
         "es": {
@@ -511,12 +531,32 @@
         }
       }
     },
+    "Notify me when a transcript is ready": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avisarme cuando una transcripción esté lista"
+          }
+        }
+      }
+    },
     "Older": {
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Anteriores"
+          }
+        }
+      }
+    },
+    "One notification per call, and one if a recording had a problem. Nothing else.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una notificación por llamada y otra si una grabación tuvo un problema. Nada más."
           }
         }
       }
@@ -567,6 +607,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Abrir carpeta de transcripciones"
+          }
+        }
+      }
+    },
+    "Problem with “%@”": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Problema con «%@»"
           }
         }
       }
@@ -837,6 +887,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Transcribiendo tu lado…"
+          }
+        }
+      }
+    },
+    "Transcript ready": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transcripción lista"
+          }
+        }
+      }
+    },
+    "Transcript ready · %lld min": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transcripción lista · %lld min"
           }
         }
       }

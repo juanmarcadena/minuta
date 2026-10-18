@@ -30,6 +30,7 @@ struct SettingsView: View {
 
 private struct GeneralPane: View {
     @Bindable var model: AppModel
+    @AppStorage("notifyTranscripts") private var notify = true
 
     var body: some View {
         Form {
@@ -37,6 +38,12 @@ private struct GeneralPane: View {
                 Toggle("Open Minuta at login", isOn: $model.launchAtLogin)
             } footer: {
                 Text("Minuta lives in the menu bar. It needs to be running to notice your calls.")
+                    .foregroundStyle(.secondary)
+            }
+            Section {
+                Toggle("Notify me when a transcript is ready", isOn: $notify)
+            } footer: {
+                Text("One notification per call, and one if a recording had a problem. Nothing else.")
                     .foregroundStyle(.secondary)
             }
         }

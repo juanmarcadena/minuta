@@ -3,11 +3,13 @@ import PackageDescription
 
 let package = Package(
     name: "MinutaCore",
-    platforms: [.macOS(.v26)],
+    defaultLocalization: "en",
+    platforms: [.macOS(.v26), .iOS(.v26)],
     products: [
         .library(name: "MinutaCore", targets: ["MinutaCore"]),
         .library(name: "MinutaTranscription", targets: ["MinutaTranscription"]),
         .executable(name: "minuta-transcribe", targets: ["minuta-transcribe"]),
+        .library(name: "MinutaUI", targets: ["MinutaUI"]),
         .library(name: "MinutaMCP", targets: ["MinutaMCP"]),
         .executable(name: "minuta-mcp", targets: ["minuta-mcp"]),
     ],
@@ -18,6 +20,8 @@ let package = Package(
     targets: [
         // Pure logic, no models: unit tested.
         .target(name: "MinutaCore"),
+        // Transcript browser (SwiftUI), shared by the Mac app and a future iPhone/iPad app.
+        .target(name: "MinutaUI", dependencies: ["MinutaCore"]),
         // WhisperKit transcription + SpeakerKit diarization.
         .target(name: "MinutaTranscription", dependencies: [
             "MinutaCore",

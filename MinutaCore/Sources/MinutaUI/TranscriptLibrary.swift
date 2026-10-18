@@ -1,19 +1,23 @@
 import Foundation
 import MinutaCore
+import Observation
 
 /// All transcripts in the folder, newest first, kept current while the viewer is open.
+@MainActor
 @Observable
-final class TranscriptLibrary {
-    private(set) var documents: [TranscriptDocument] = []
-    private(set) var isLoading = false
+public final class TranscriptLibrary {
+    public init() {}
+
+    public private(set) var documents: [TranscriptDocument] = []
+    public private(set) var isLoading = false
     /// Which transcript the viewer shows; set from the menu before opening the window.
-    var selection: URL?
+    public var selection: URL?
 
     @ObservationIgnored private var folder: URL?
     @ObservationIgnored private var watcher: DispatchSourceFileSystemObject?
     @ObservationIgnored private var searchIndex: [URL: String] = [:]
 
-    func open(folder: URL) {
+    public func open(folder: URL) {
         if self.folder != folder {
             self.folder = folder
             watch(folder)
@@ -21,7 +25,7 @@ final class TranscriptLibrary {
         reload()
     }
 
-    func reload() {
+    public func reload() {
         guard let folder else { return }
         isLoading = true
         Task {
@@ -34,7 +38,7 @@ final class TranscriptLibrary {
     }
 
     /// Transcripts whose title, attendees or words contain every word of the query (case and accents ignored).
-    func filtered(_ query: String) -> [TranscriptDocument] {
+    public func filtered(_ query: String) -> [TranscriptDocument] {
         let words = TranscriptDocument.fold(query).split(whereSeparator: \.isWhitespace).map(String.init)
         guard !words.isEmpty else { return documents }
         return documents.filter { doc in

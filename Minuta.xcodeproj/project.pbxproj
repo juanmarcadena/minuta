@@ -11,6 +11,7 @@
 		B10000000000000000000003 /* minuta-mcp in Copy MCP Helper */ = {isa = PBXBuildFile; fileRef = B10000000000000000000010 /* minuta-mcp */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A10000000000000000000001 /* MinutaCore in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000002 /* MinutaCore */; };
 		A10000000000000000000004 /* MinutaTranscription in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000005 /* MinutaTranscription */; };
+		A10000000000000000000006 /* MinutaUI in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000007 /* MinutaUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 			files = (
 				A10000000000000000000001 /* MinutaCore in Frameworks */,
 				A10000000000000000000004 /* MinutaTranscription in Frameworks */,
+				A10000000000000000000006 /* MinutaUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +152,7 @@
 			packageProductDependencies = (
 				A10000000000000000000002 /* MinutaCore */,
 				A10000000000000000000005 /* MinutaTranscription */,
+				A10000000000000000000007 /* MinutaUI */,
 			);
 			productName = Minuta;
 			productReference = A10000000000000000000010 /* Minuta.app */;
@@ -402,6 +405,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A10000000000000000000007 /* MinutaUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MinutaUI;
+		};
 		B10000000000000000000002 /* MinutaMCP */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MinutaMCP;

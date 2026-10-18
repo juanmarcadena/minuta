@@ -1,5 +1,6 @@
 import AppKit
 import MinutaCore
+import MinutaUI
 import Observation
 import ServiceManagement
 
@@ -15,6 +16,9 @@ final class AppModel {
     let queue = TranscriptionQueue()
     let calendar = CalendarContext()
     let library = TranscriptLibrary()
+    @ObservationIgnored let notifier = Notifier()
+    /// Bumped to ask the menu-bar label (always alive) to open the Transcripts window.
+    var transcriptsWindowRequest = 0
 
     @ObservationIgnored private var session: RecordingSession?
     @ObservationIgnored private var starting = false
@@ -41,7 +45,21 @@ final class AppModel {
             return (self.transcriptsFolder, language, vocabulary)
         }
         queue.recoverLeftovers()
-        queue.onWritten = { [weak self] _ in self?.refreshRecent() }
+        queue.onWritten = { [weak self] url in
+            self?.refreshRecent()
+            if let text = try? String(contentsOf: url, encoding: .utf8) {
+                let doc = TranscriptDocument.parse(text, url: url)
+                self?.notifier.transcriptReady(url, title: doc.title, minutes: doc.durationMinutes)
+            }
+        }
+        queue.onFailed = { [weak self] message in
+            self?.notifier.problem(String(localized: "A transcript couldn't be made"), detail: message)
+        }
+        notifier.onOpen = { [weak self] url in
+            guard let self else { return }
+            library.selection = url
+            transcriptsWindowRequest += 1
+        }
         refreshRecent()
         calendar.refreshAccess()
         if calendar.access == .unknown {
@@ -191,6 +209,9 @@ final class AppModel {
                 problems.append(String(localized: "No sound came from \(manifest.app) during \"\(manifest.displayTitle)\". If the other side talked, turn on Minuta in System Settings → Privacy & Security → Screen & System Audio Recording."))
             }
             lastError = problems.isEmpty ? nil : problems.joined(separator: "; ")
+            if let first = problems.first {
+                notifier.problem(String(localized: "Problem with “\(manifest.displayTitle)”"), detail: first)
+            }
             EventLog.write(String(format: "stop %@ %.0fs device-changes=%d me-peak=%.3f them-peak=%.3f%@",
                                   session.folder.lastPathComponent, duration, session.deviceChanges,
                                   manifest.me.peak ?? 0, manifest.them.peak ?? 0,
