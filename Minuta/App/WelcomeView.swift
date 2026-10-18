@@ -56,7 +56,7 @@ struct WelcomeView: View {
         .onAppear { NSApp.activate() }
     }
 
-    private func step(_ title: String, detail: String, done: Bool, action: @escaping () -> Void) -> some View {
+    private func step(_ title: LocalizedStringKey, detail: LocalizedStringKey, done: Bool, action: @escaping () -> Void) -> some View {
         HStack(alignment: .firstTextBaseline) {
             Image(systemName: done ? "checkmark.circle.fill" : "circle")
                 .foregroundStyle(done ? AnyShapeStyle(.green) : AnyShapeStyle(.secondary))

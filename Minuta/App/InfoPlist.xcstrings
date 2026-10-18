@@ -1,0 +1,66 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "CFBundleDisplayName": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuta"
+          }
+        }
+      }
+    },
+    "CFBundleName": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuta"
+          }
+        }
+      }
+    },
+    "NSAudioCaptureUsageDescription": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuta graba el audio de las demás personas en tus llamadas para hacer la transcripción. El audio se queda en esta Mac y se borra cuando se guarda la transcripción."
+          }
+        }
+      }
+    },
+    "NSCalendarsFullAccessUsageDescription": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuta lee tu calendario para nombrar cada transcripción como su reunión y escribir bien los nombres de quienes asisten. Nunca modifica tu calendario."
+          }
+        }
+      }
+    },
+    "NSHumanReadableCopyright": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "© 2026 Juan Martín Cadena. Licencia MIT."
+          }
+        }
+      }
+    },
+    "NSMicrophoneUsageDescription": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuta graba tu lado de las llamadas para hacer la transcripción. El audio se queda en esta Mac y se borra cuando se guarda la transcripción."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

@@ -68,6 +68,11 @@ struct MenuContent: View {
 
         Divider()
 
+        Button("About Minuta") {
+            NSApp.activate()
+            AboutPanel.show()
+        }
+
         Button("Settings…") {
             // A menu-bar-only app must come forward or Settings opens behind other windows.
             NSApp.activate()
@@ -84,7 +89,7 @@ struct MenuContent: View {
     /// "Next: Weekly sync in 5 min" (or "at 15:00" when more than 15 minutes away).
     static func nextLine(_ e: CalendarContext.EventInfo, now: Date) -> String {
         let minutes = Int((e.start.timeIntervalSince(now) / 60).rounded(.up))
-        if minutes <= 15 { return "Next: \(e.title) in \(max(1, minutes)) min" }
-        return "Next: \(e.title) at \(e.start.formatted(date: .omitted, time: .shortened))"
+        if minutes <= 15 { return String(localized: "Next: \(e.title) in \(max(1, minutes)) min") }
+        return String(localized: "Next: \(e.title) at \(e.start.formatted(date: .omitted, time: .shortened))")
     }
 }

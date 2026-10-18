@@ -22,7 +22,8 @@ final class TranscriptionQueue {
         modelsBase: URL.applicationSupportDirectory.appending(path: "Minuta/Models", directoryHint: .isDirectory)
     ) { [weak self] message in
         TranscriptionQueue.log(message)
-        Task { @MainActor in self?.progress = message }
+        // Stage messages ("Transcribing your side…") are looked up in the string catalog.
+        Task { @MainActor in self?.progress = String(localized: String.LocalizationValue(message)) }
     }
 
     /// With MINUTA_DEBUG=1, every progress line also goes to ~/Library/Logs/Minuta/transcription.log.
@@ -100,7 +101,7 @@ final class TranscriptionQueue {
             EventLog.write("transcript \(folder.lastPathComponent) → \(url.lastPathComponent) (\(result.utterances.count) lines)")
             onWritten?(url)
         } catch {
-            lastError = "Transcription failed for \(folder.lastPathComponent): \(error.localizedDescription). The audio was kept."
+            lastError = String(localized: "Transcription failed for \(folder.lastPathComponent): \(error.localizedDescription). The audio was kept.")
             EventLog.write("transcription failed \(folder.lastPathComponent): \(error.localizedDescription)")
         }
     }

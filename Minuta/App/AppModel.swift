@@ -69,9 +69,25 @@ final class AppModel {
 
     /// The line at the top of the menu.
     var statusLine: String {
-        if phase != .idle || queue.count == 0 { return phase.statusLine(now: now) }
-        let base = MeetingPhase.transcribing(pending: queue.count).statusLine()
+        if phase != .idle || queue.count == 0 { return Self.text(for: phase, now: now) }
+        let base = Self.text(for: .transcribing(pending: queue.count), now: now)
         return queue.progress.map { "\(base) — \($0)" } ?? base
+    }
+
+    /// The menu's status line, in the user's language.
+    static func text(for phase: MeetingPhase, now: Date) -> String {
+        switch phase {
+        case .idle:
+            return String(localized: "Idle")
+        case .armed(let app, _):
+            return String(localized: "\(app) is using the mic…")
+        case .recording(let app, let since):
+            return String(localized: "Recording \(app) — \(MeetingPhase.clock(now.timeIntervalSince(since)))")
+        case .finishing(let app, _):
+            return String(localized: "Finishing \(app) recording…")
+        case .transcribing(let pending):
+            return String(localized: "Transcribing \(pending) meetings")
+        }
     }
 
     // MARK: Detection
@@ -126,7 +142,7 @@ final class AppModel {
         defer { starting = false }
         lastError = nil
         guard await MicRecorder.requestPermission() else {
-            lastError = "Microphone access is off. Turn it on in System Settings → Privacy & Security → Microphone."
+            lastError = String(localized: "Microphone access is off. Turn it on in System Settings → Privacy & Security → Microphone.")
             detector.manualStop(micApps: [])
             return
         }
@@ -146,7 +162,7 @@ final class AppModel {
             phase = .recording(app: event?.title ?? name, since: session.manifest.startedAt)
             EventLog.write("start \(appID ?? "manual") \"\(session.manifest.displayTitle)\" \(session.folder.lastPathComponent)")
         } catch {
-            lastError = "Couldn't start recording: \(error.localizedDescription)"
+            lastError = String(localized: "Couldn't start recording: \(error.localizedDescription)")
             EventLog.write("start failed: \(error.localizedDescription)")
             detector.manualStop(micApps: [])
         }
@@ -172,7 +188,7 @@ final class AppModel {
             var problems = session.problems
             let duration = (manifest.endedAt ?? .now).timeIntervalSince(manifest.startedAt)
             if manifest.appID != nil, manifest.themLooksSilent(duration: duration) {
-                problems.append("No sound came from \(manifest.app) during \"\(manifest.displayTitle)\". If the other side talked, turn on Minuta in System Settings → Privacy & Security → Screen & System Audio Recording.")
+                problems.append(String(localized: "No sound came from \(manifest.app) during \"\(manifest.displayTitle)\". If the other side talked, turn on Minuta in System Settings → Privacy & Security → Screen & System Audio Recording."))
             }
             lastError = problems.isEmpty ? nil : problems.joined(separator: "; ")
             EventLog.write(String(format: "stop %@ %.0fs device-changes=%d me-peak=%.3f them-peak=%.3f%@",
@@ -182,7 +198,7 @@ final class AppModel {
             lastRecording = session.folder
             queue.enqueue(session.folder)
         } catch {
-            lastError = "Couldn't finish recording: \(error.localizedDescription)"
+            lastError = String(localized: "Couldn't finish recording: \(error.localizedDescription)")
         }
     }
 
@@ -194,7 +210,7 @@ final class AppModel {
         do {
             try tap.start(target: .allExceptSelf, writingTo: url)
         } catch {
-            lastError = "System audio: \(error.localizedDescription)"
+            lastError = String(localized: "System audio: \(error.localizedDescription)")
             return
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -234,10 +250,10 @@ final class AppModel {
         }
         NSApp.activate()
         let alert = NSAlert()
-        alert.messageText = "Apps using audio now"
+        alert.messageText = String(localized: "Apps using audio now")
         alert.informativeText = text
-        alert.addButton(withTitle: "Copy")
-        alert.addButton(withTitle: "Close")
+        alert.addButton(withTitle: String(localized: "Copy"))
+        alert.addButton(withTitle: String(localized: "Close"))
         if alert.runModal() == .alertFirstButtonReturn {
             NSPasteboard.general.clearContents()
             NSPasteboard.general.setString(text, forType: .string)
@@ -265,7 +281,7 @@ final class AppModel {
             try FileManager.default.createDirectory(at: transcriptsFolder, withIntermediateDirectories: true)
             NSWorkspace.shared.open(transcriptsFolder)
         } catch {
-            lastError = "Couldn't open \(transcriptsFolder.path): \(error.localizedDescription)"
+            lastError = String(localized: "Couldn't open \(transcriptsFolder.path): \(error.localizedDescription)")
         }
     }
 
@@ -281,7 +297,7 @@ final class AppModel {
                 do {
                     if newValue { try SMAppService.mainApp.register() } else { try SMAppService.mainApp.unregister() }
                 } catch {
-                    lastError = "Launch at login: \(error.localizedDescription)"
+                    lastError = String(localized: "Launch at login: \(error.localizedDescription)")
                 }
             }
         }

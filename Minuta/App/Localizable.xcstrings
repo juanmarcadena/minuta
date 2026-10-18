@@ -1,0 +1,936 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ is using the mic…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ está usando el micrófono…"
+          }
+        }
+      }
+    },
+    "A transcript of every call, written on this Mac.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una transcripción de cada llamada, hecha en esta Mac."
+          }
+        }
+      }
+    },
+    "AI assistants": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asistentes de IA"
+          }
+        }
+      }
+    },
+    "About Minuta": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acerca de Minuta"
+          }
+        }
+      }
+    },
+    "Allow Calendar Access…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permitir acceso al calendario…"
+          }
+        }
+      }
+    },
+    "Allowed": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permitido"
+          }
+        }
+      }
+    },
+    "Allow…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permitir…"
+          }
+        }
+      }
+    },
+    "Apps": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps"
+          }
+        }
+      }
+    },
+    "Apps using audio now": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps usando audio ahora"
+          }
+        }
+      }
+    },
+    "Audio never leaves this Mac and is deleted once the transcript is saved. Let people know you're transcribing.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El audio nunca sale de esta Mac y se borra en cuanto se guarda la transcripción. Avisa a los demás que estás transcribiendo."
+          }
+        }
+      }
+    },
+    "Automatic": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automático"
+          }
+        }
+      }
+    },
+    "Calendar": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendario"
+          }
+        }
+      }
+    },
+    "Calendar access is off": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El acceso al calendario está desactivado"
+          }
+        }
+      }
+    },
+    "Calendar access is on": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El acceso al calendario está activado"
+          }
+        }
+      }
+    },
+    "Call transcripts on your Mac. No bot, nothing uploaded.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transcripciones de tus llamadas en tu Mac. Sin bot y sin subir nada."
+          }
+        }
+      }
+    },
+    "Choose…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elegir…"
+          }
+        }
+      }
+    },
+    "Claude Code": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude Code"
+          }
+        }
+      }
+    },
+    "Close": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar"
+          }
+        }
+      }
+    },
+    "Company, product and people names": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nombres de empresas, productos y personas"
+          }
+        }
+      }
+    },
+    "Copied": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiado"
+          }
+        }
+      }
+    },
+    "Copy": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiar"
+          }
+        }
+      }
+    },
+    "Copy Setup Command": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiar comando de configuración"
+          }
+        }
+      }
+    },
+    "Copy Transcript": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiar transcripción"
+          }
+        }
+      }
+    },
+    "Couldn't finish recording: %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo terminar la grabación: %@"
+          }
+        }
+      }
+    },
+    "Couldn't open %@: %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo abrir %1$@: %2$@"
+          }
+        }
+      }
+    },
+    "Couldn't start recording: %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo empezar a grabar: %@"
+          }
+        }
+      }
+    },
+    "Debug": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Depuración"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listo"
+          }
+        }
+      }
+    },
+    "Finishing %@ recording…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminando la grabación de %@…"
+          }
+        }
+      }
+    },
+    "Folder": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carpeta"
+          }
+        }
+      }
+    },
+    "General": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "General"
+          }
+        }
+      }
+    },
+    "Idle": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En espera"
+          }
+        }
+      }
+    },
+    "Language": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
+        }
+      }
+    },
+    "Launch at login: %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir al iniciar sesión: %@"
+          }
+        }
+      }
+    },
+    "Loading speech model…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cargando el modelo de voz…"
+          }
+        }
+      }
+    },
+    "Microphone": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Micrófono"
+          }
+        }
+      }
+    },
+    "Microphone access is off. Turn it on in System Settings → Privacy & Security → Microphone.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El acceso al micrófono está desactivado. Actívalo en Configuración del Sistema → Privacidad y seguridad → Micrófono."
+          }
+        }
+      }
+    },
+    "Minuta": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuta"
+          }
+        }
+      }
+    },
+    "Minuta includes a read-only MCP server so assistants like Claude can search and read your transcripts on this Mac. For other apps, add a stdio server with the path Minuta.app/Contents/MacOS/minuta-mcp.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuta incluye un servidor MCP de solo lectura para que asistentes como Claude busquen y lean tus transcripciones en esta Mac. Para otras apps, agrega un servidor stdio con la ruta Minuta.app/Contents/MacOS/minuta-mcp."
+          }
+        }
+      }
+    },
+    "Minuta lives in the menu bar. It needs to be running to notice your calls.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuta vive en la barra de menús. Tiene que estar abierta para detectar tus llamadas."
+          }
+        }
+      }
+    },
+    "Minuta reads your calendars to name each transcript after its meeting, list who attended, and spell their names right. It never changes your calendar.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuta lee tus calendarios para nombrar cada transcripción como su reunión, saber quién asistió y escribir bien sus nombres. Nunca modifica tu calendario."
+          }
+        }
+      }
+    },
+    "Minuta starts recording when one of these apps opens the mic and stops 30 seconds after the call ends. Mic uses under 20 seconds, and calls under a minute with no calendar event, are thrown away. It records only that app's sound.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuta empieza a grabar cuando una de estas apps abre el micrófono y se detiene 30 segundos después de que termina la llamada. Se descartan los usos del micrófono de menos de 20 segundos y las llamadas de menos de un minuto sin evento en el calendario. Solo graba el sonido de esa app."
+          }
+        }
+      }
+    },
+    "Minuta, recording": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuta, grabando"
+          }
+        }
+      }
+    },
+    "Move to Trash": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mover a la papelera"
+          }
+        }
+      }
+    },
+    "Names and terms": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nombres y términos"
+          }
+        }
+      }
+    },
+    "Names each transcript after its meeting. Read-only.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nombra cada transcripción como su reunión. Solo lectura."
+          }
+        }
+      }
+    },
+    "Next: %@ at %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Siguiente: %1$@ a las %2$@"
+          }
+        }
+      }
+    },
+    "Next: %@ in %lld min": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Siguiente: %1$@ en %2$lld min"
+          }
+        }
+      }
+    },
+    "No Transcripts Yet": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aún no hay transcripciones"
+          }
+        }
+      }
+    },
+    "No sound came from %@ during \"%@\". If the other side talked, turn on Minuta in System Settings → Privacy & Security → Screen & System Audio Recording.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No llegó sonido de %1$@ durante «%2$@». Si la otra persona habló, activa Minuta en Configuración del Sistema → Privacidad y seguridad → Grabación de pantalla y audio del sistema."
+          }
+        }
+      }
+    },
+    "No speech was detected in this recording.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se detectó voz en esta grabación."
+          }
+        }
+      }
+    },
+    "Older": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anteriores"
+          }
+        }
+      }
+    },
+    "Open Meeting Link": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir enlace de la reunión"
+          }
+        }
+      }
+    },
+    "Open Minuta at login": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir Minuta al iniciar sesión"
+          }
+        }
+      }
+    },
+    "Open Minuta when I log in": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir Minuta cuando inicie sesión"
+          }
+        }
+      }
+    },
+    "Open Privacy Settings…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir configuración de privacidad…"
+          }
+        }
+      }
+    },
+    "Open Transcripts Folder": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir carpeta de transcripciones"
+          }
+        }
+      }
+    },
+    "Quit Minuta": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salir de Minuta"
+          }
+        }
+      }
+    },
+    "Recent Transcripts": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transcripciones recientes"
+          }
+        }
+      }
+    },
+    "Record calls automatically": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grabar llamadas automáticamente"
+          }
+        }
+      }
+    },
+    "Recording": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grabación"
+          }
+        }
+      }
+    },
+    "Recording %@ — %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grabando %1$@ — %2$@"
+          }
+        }
+      }
+    },
+    "Reveal Last Recording": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar la última grabación"
+          }
+        }
+      }
+    },
+    "Search transcripts": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar en transcripciones"
+          }
+        }
+      }
+    },
+    "Select a Transcript": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecciona una transcripción"
+          }
+        }
+      }
+    },
+    "Separating speakers…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Separando voces…"
+          }
+        }
+      }
+    },
+    "Settings…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Configuración…"
+          }
+        }
+      }
+    },
+    "Show Apps Using Audio…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar apps usando audio…"
+          }
+        }
+      }
+    },
+    "Show Transcripts…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar transcripciones…"
+          }
+        }
+      }
+    },
+    "Show in Finder": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar en Finder"
+          }
+        }
+      }
+    },
+    "Spelled the way you write them here. Separate with commas.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se escriben tal como los pongas aquí. Sepáralos con comas."
+          }
+        }
+      }
+    },
+    "Start Recording": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empezar a grabar"
+          }
+        }
+      }
+    },
+    "Stop Recording": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detener grabación"
+          }
+        }
+      }
+    },
+    "System audio": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Audio del sistema"
+          }
+        }
+      }
+    },
+    "System audio: %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Audio del sistema: %@"
+          }
+        }
+      }
+    },
+    "The other people. macOS asks once; choose Allow.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las demás personas. macOS lo pide una vez; elige Permitir."
+          }
+        }
+      }
+    },
+    "This Week": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta semana"
+          }
+        }
+      }
+    },
+    "Today": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoy"
+          }
+        }
+      }
+    },
+    "Transcribing %lld meetings": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Transcribing %lld meeting"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Transcribing %lld meetings"
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Transcribiendo %lld reunión"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Transcribiendo %lld reuniones"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Transcribing the other side…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transcribiendo el otro lado…"
+          }
+        }
+      }
+    },
+    "Transcribing your side…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transcribiendo tu lado…"
+          }
+        }
+      }
+    },
+    "Transcription by WhisperKit (Argmax). Speaker separation by SpeakerKit. MCP server built with the Model Context Protocol Swift SDK.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transcripción con WhisperKit (Argmax). Separación de voces con SpeakerKit. Servidor MCP hecho con el SDK de Swift de Model Context Protocol."
+          }
+        }
+      }
+    },
+    "Transcription failed for %@: %@. The audio was kept.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Falló la transcripción de %1$@: %2$@. Se conservó el audio."
+          }
+        }
+      }
+    },
+    "Transcripts": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transcripciones"
+          }
+        }
+      }
+    },
+    "Transcripts of your calls appear here a few seconds after each call ends.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las transcripciones de tus llamadas aparecen aquí unos segundos después de que termina cada una."
+          }
+        }
+      }
+    },
+    "Use Folder": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usar carpeta"
+          }
+        }
+      }
+    },
+    "Welcome to Minuta": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bienvenido a Minuta"
+          }
+        }
+      }
+    },
+    "With %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Con %@"
+          }
+        }
+      }
+    },
+    "Yesterday": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayer"
+          }
+        }
+      }
+    },
+    "Your side of the call.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu lado de la llamada."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

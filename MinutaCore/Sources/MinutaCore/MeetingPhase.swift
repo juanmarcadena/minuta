@@ -31,7 +31,7 @@ public enum MeetingPhase: Equatable, Sendable {
         }
     }
 
-    static func clock(_ seconds: TimeInterval) -> String {
+    public static func clock(_ seconds: TimeInterval) -> String {
         let s = max(0, Int(seconds))
         let (h, m, r) = (s / 3600, (s % 3600) / 60, s % 60)
         return h > 0 ? String(format: "%d:%02d:%02d", h, m, r) : String(format: "%d:%02d", m, r)

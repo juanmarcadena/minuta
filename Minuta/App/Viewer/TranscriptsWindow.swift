@@ -67,10 +67,10 @@ struct TranscriptSidebar: View {
     static func sections(_ docs: [TranscriptDocument], now: Date = .now) -> [(title: String, items: [TranscriptDocument])] {
         let cal = Calendar.current
         func title(_ d: Date?) -> String {
-            guard let d else { return "Older" }
-            if cal.isDateInToday(d) { return "Today" }
-            if cal.isDateInYesterday(d) { return "Yesterday" }
-            if let week = cal.dateInterval(of: .weekOfYear, for: now), week.contains(d) { return "This Week" }
+            guard let d else { return String(localized: "Older") }
+            if cal.isDateInToday(d) { return String(localized: "Today") }
+            if cal.isDateInYesterday(d) { return String(localized: "Yesterday") }
+            if let week = cal.dateInterval(of: .weekOfYear, for: now), week.contains(d) { return String(localized: "This Week") }
             return d.formatted(.dateTime.month(.wide).year())
         }
         var out: [(title: String, items: [TranscriptDocument])] = []
