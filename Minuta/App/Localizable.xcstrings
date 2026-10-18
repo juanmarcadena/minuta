@@ -531,6 +531,16 @@
         }
       }
     },
+    "Notifications are off for Minuta in System Settings": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las notificaciones de Minuta están desactivadas en Configuración del Sistema"
+          }
+        }
+      }
+    },
     "Notify me when a transcript is ready": {
       "localizations": {
         "es": {
@@ -587,6 +597,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Abrir Minuta cuando inicie sesión"
+          }
+        }
+      }
+    },
+    "Open Notification Settings…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir configuración de notificaciones…"
           }
         }
       }

@@ -16,6 +16,16 @@ final class Notifier: NSObject, UNUserNotificationCenterDelegate {
 
     var enabled: Bool { UserDefaults.standard.object(forKey: "notifyTranscripts") as? Bool ?? true }
 
+    /// True when macOS has notifications for Minuta turned off (the user's choice in System Settings).
+    func isDeniedBySystem() async -> Bool {
+        await center.notificationSettings().authorizationStatus == .denied
+    }
+
+    static func openSystemSettings() {
+        let id = Bundle.main.bundleIdentifier ?? ""
+        NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.Notifications-Settings.extension?id=\(id)")!)
+    }
+
     override init() {
         super.init()
         center.delegate = self
@@ -32,18 +42,33 @@ final class Notifier: NSObject, UNUserNotificationCenterDelegate {
     /// Asks once, in context; later calls return the stored answer without prompting.
     private func authorized() async -> Bool {
         let settings = await center.notificationSettings()
+        EventLog.write("notifications: status \(settings.authorizationStatus.rawValue) alert-setting \(settings.alertSetting.rawValue)")
         switch settings.authorizationStatus {
         case .authorized, .provisional: return true
-        case .notDetermined: return (try? await center.requestAuthorization(options: [.alert])) ?? false
+        case .notDetermined:
+            do {
+                let granted = try await center.requestAuthorization(options: [.alert])
+                EventLog.write("notifications: asked, granted=\(granted)")
+                return granted
+            } catch {
+                EventLog.write("notifications: request failed: \(error.localizedDescription)")
+                return false
+            }
         default: return false
         }
     }
 
     func transcriptReady(_ url: URL, title: String, minutes: Int?) {
+        EventLog.write("notifications: transcript ready \(url.lastPathComponent), enabled=\(enabled)")
         guard enabled else { return }
         let content = UNMutableNotificationContent()
         content.title = title
-        content.body = minutes.map { String(localized: "Transcript ready · \($0) min") } ?? String(localized: "Transcript ready")
+        // "0 min" reads like an error; short calls just say "Transcript ready".
+        if let minutes, minutes >= 1 {
+            content.body = String(localized: "Transcript ready · \(minutes) min")
+        } else {
+            content.body = String(localized: "Transcript ready")
+        }
         content.categoryIdentifier = Self.transcriptCategory
         content.threadIdentifier = "transcripts"
         content.userInfo = ["file": url.path]
@@ -62,8 +87,13 @@ final class Notifier: NSObject, UNUserNotificationCenterDelegate {
 
     private func post(_ content: UNMutableNotificationContent, id: String) {
         Task {
-            guard await authorized() else { return }
-            try? await center.add(UNNotificationRequest(identifier: id, content: content, trigger: nil))
+            guard await authorized() else { EventLog.write("notifications: not allowed, skipped \(id)"); return }
+            do {
+                try await center.add(UNNotificationRequest(identifier: id, content: content, trigger: nil))
+                EventLog.write("notifications: posted \(id)")
+            } catch {
+                EventLog.write("notifications: post failed \(id): \(error.localizedDescription)")
+            }
         }
     }
 
