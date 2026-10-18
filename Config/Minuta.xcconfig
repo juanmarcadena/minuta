@@ -1,0 +1,12 @@
+// Signing and identity. Put your own values in Config/Local.xcconfig (not committed):
+//
+//   DEVELOPMENT_TEAM = ABCDE12345
+//   PRODUCT_BUNDLE_IDENTIFIER = com.yourname.minuta
+//
+// Your team ID is in Xcode → Settings → Accounts. Keep the bundle ID stable: macOS ties the
+// microphone, system audio and calendar permissions to it.
+
+PRODUCT_BUNDLE_IDENTIFIER = com.example.minuta
+DEVELOPMENT_TEAM =
+
+#include? "Local.xcconfig"
